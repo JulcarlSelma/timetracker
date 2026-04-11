@@ -60,6 +60,9 @@
                                     <a class="nav-link" href="{{ route('employee.index') }}">{{ __('Employees') }}</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('clients.index') }}">{{ __('Clients') }}</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('report.index') }}">{{ __('Reports') }}</a>
                                 </li>
                                 <li class="nav-item">

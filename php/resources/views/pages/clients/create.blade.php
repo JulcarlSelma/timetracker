@@ -8,15 +8,14 @@
                 <div class="card-header">{{ __('Register Client') }}</div>
 
                 <div class="card-body">
-                    @include('pages.employees.parts', [
+                    @include('pages.clients.parts', [
                         'isEdit' => false,
-                        'firstname' => '',
-                        'middlename' => '',
-                        'lastname' => '',
-                        'suffix' => '',
-                        'birthdate' => '',
-                        'employeed' => '',
-                        'resigned' => '',
+                        'name' => '',
+                        'contact_person' => '',
+                        'email' => '',
+                        'phone' => '',
+                        'mobile' => '',
+                        'address' => '',
                         'buttonText' => 'Register'
                     ])
                 </div>
