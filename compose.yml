@@ -9,20 +9,15 @@ services:
     volumes:
       - ./php:/var/www/html
       - vendor_volume:/var/www/html/vendor
-    depends_on:
-      - mysql
-
   mysql:
     build:
       context: .
       dockerfile: ./infra/mysql/Dockerfile
-    container_name: mysql-timetracker
-    platform: linux/x86_64
     ports:
       - "3307:3306"
     environment:
       - "LANG=C.UTF-8"
-      - "MYSQL_ROOT_PASSWORD=password"
+      - "MYSQL_ROOT_PASSWORD=root"
       - "MYSQL_DATABASE=timetracker"
     volumes:
       - type: volume
@@ -34,7 +29,7 @@ networks:
     driver: bridge
 
 volumes:
-  mysql-volume:
-    driver: local
   vendor_volume:
+    driver: local
+  mysql-volume:
     driver: local

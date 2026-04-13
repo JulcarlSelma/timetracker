@@ -1,3 +1,3 @@
-FROM mysql:8.0.42
+FROM mysql:latest
 
-COPY ./infra/mysql/my.cnf /etc/mysql/conf.d/my.cnf
+COPY ./infra/mysql/my.conf /etc/my.conf
