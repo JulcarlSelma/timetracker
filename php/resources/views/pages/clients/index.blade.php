@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div>
     <div class="row justify-content-center mb-3">
         <div class="col-md-8">
             <a href="{{route('clients.create')}}" class="btn btn-primary" style="float: right;">{{__('Add Client')}}</a>

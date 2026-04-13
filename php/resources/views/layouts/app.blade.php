@@ -66,7 +66,7 @@
                                     <a class="nav-link" href="{{ route('report.index') }}">{{ __('Reports') }}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('timesetting.index') }}">{{ __('Work Settings') }}</a>
+                                    <a class="nav-link" href="{{ route('service_orders.index') }}">{{ __('Service Order') }}</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -95,6 +95,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('timesetting.index') }}">{{ __('Work Settings') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
