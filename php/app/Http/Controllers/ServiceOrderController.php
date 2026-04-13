@@ -14,9 +14,16 @@ class ServiceOrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $orders = ServiceOrders::with(['client', 'assignee.person'])->paginate(10);
+        $params = $request->all();
+        $orderNo = isset($params['order_no']) ? $params['order_no'] : null;
+        $orders = ServiceOrders::with(['client', 'assignee.person']);
+        if (isset($orderNo)) {
+            $orders->where('order_no', $orderNo);
+        }
+
+        $orders = $orders->paginate(10);
         $clients = Clients::get();
         $employees = Employees::with('person')->get();
         return view('pages.service_orders.index', compact('orders', 'clients', 'employees'));

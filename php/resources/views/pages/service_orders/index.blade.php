@@ -1,12 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-<div>
-    <div class="row justify-content-center mb-3">
-        <div class="col-md-8">
-            <a href="{{route('service_orders.create')}}" class="btn btn-primary" style="float: right;">{{__('Create Service Order')}}</a>
+<div class="container-fluid">
+
+    <div class="container mb-3 d-flex">
+        <div class="col-md-6">
+            <a href="{{route('service_orders.create')}}" class="btn btn-primary">{{__('Create Service Order')}}</a>
         </div>
-    </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-end">
+            <form action="{{route('service_orders.index')}}" class="d-flex" style="gap: 10px;">
+                <div>
+                    <div>
+                        <input type="search" class="form-control" name="order_no" style="width: 300px;" value="{{ request()->get('order_no') }}" placeholder="Search for Service Order No.">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    Search
+                </button>
+            </form>
+        </div>
+</div>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
