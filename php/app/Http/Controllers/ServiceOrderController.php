@@ -68,9 +68,10 @@ class ServiceOrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(ServiceOrders $serviceOrder)
     {
-        
+        $serviceOrder->load(['client', 'assignee.person']);
+        return view('pages.service_orders.print', compact('serviceOrder'));
     }
 
     /**

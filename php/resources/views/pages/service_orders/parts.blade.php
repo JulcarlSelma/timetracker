@@ -8,10 +8,12 @@
         <label for="client_id" class="col-md-4 col-form-label text-md-end">{{ __('Client *') }}</label>
 
         <div class="col-md-6">
-            <select class="form-control" @error('client_id') is-invalid @enderror name="client_id" value="{{old('client_id', $client_id)}}" required autofocus>
+            <select id="client_id" class="form-control" @error('client_id') is-invalid @enderror name="client_id" value="{{old('client_id', $client_id)}}" required autofocus>
+                <option value="" disabled selected>Select a client</option>
                 @foreach ($clients as $client)
-                    <option value="{{$client->id}}" {{ request()->get('client_id') == $client->id ? 'selected' : '' }}>{{$client->name}}</option>
+                    <option value="{{$client->id}}" {{ $isEdit && $serviceOrder->client->id == $client->id ? 'selected' : '' }}>{{$client->name}}</option>
                 @endforeach
+                <option value="new">Add new client</option>
             </select>
             @error('client_id')
                 <span class="invalid-feedback" role="alert">
@@ -28,7 +30,7 @@
             <select class="form-control" @error('assigned_employee_id') is-invalid @enderror name="assigned_employee_id">
                 <option selected>Select an employee</option>
                 @foreach ($employees as $employee)
-                    <option value="{{$employee->id}}" {{ request()->get('assigned_employee_id') == $employee->id ? 'selected' : '' }}>{{$employee->person->fullname}}</option>
+                    <option value="{{$employee->id}}" {{ $isEdit && $serviceOrder->assignee->id  == $employee->id ? 'selected' : '' }}>{{$employee->person->fullname}}</option>
                 @endforeach
             </select>
         </div>
@@ -105,3 +107,14 @@
         </div>
     </div>
 </form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const clientSelect = document.getElementById('client_id');
+    clientSelect.addEventListener('change', function() {
+        if (this.value === 'new') {
+            window.location.href = "{{ route('clients.create') }}";
+        }
+    });
+});
+</script>

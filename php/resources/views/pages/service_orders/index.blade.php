@@ -16,6 +16,7 @@
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
+                                <th>SO No.</th>
                                 <th>Client</th>
                                 <th>Address</th>
                                 <th>Assigned Person</th>
@@ -31,6 +32,7 @@
                         <tbody>
                             @forelse ($orders as $order)
                                 <tr>
+                                    <td>{{$order->order_no}}</td>
                                     <td>{{$order->client->name}}</td>
                                     <td>{{$order->client->address}}</td>
                                     <td>{{$order->assignee->person->fullname}}</td>
@@ -47,6 +49,7 @@
                                             @method('DELETE')
                                             <button class="btn btn-danger" type="submit">Delete</button>
                                         </form>
+                                        <a href="{{route('service_orders.show', $order->id)}}" class="btn btn-info mx-2">Print</a>
                                     </td>
                                 </tr>
                             @empty

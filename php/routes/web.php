@@ -47,7 +47,7 @@ Route::group(['middleware' => ['auth', 'can:admin.view']], function () {
     Route::resource('timesetting', TimeSettingsController::class);
     Route::resource('workdays', WorkingDaysController::class)->except(['index', 'destroy']);
     Route::resource('clients', ClientController::class)->except(['show']);
-    Route::resource('service_orders', ServiceOrderController::class)->except(['show']);
+    Route::resource('service_orders', ServiceOrderController::class);
 
     Route::group(['as' => 'payroll.'], function () {
         Route::resource('rate', EmployeeRateController::class)->except(['create', 'store', 'show', 'destroy']);
