@@ -2,7 +2,7 @@
             <div class="col-md-12 mb-2">
                 <div class="header d-flex" style="gap: 20px;">
                     <div class="col-md-1 d-flex align-items-center justify-content-center">
-                        <img src="{{ asset('images/logo-icon.png') }}" alt="Logo" class="w-50 img-fluid" />
+                        <img src="{{ asset('images/logo-icon.jpg') }}" alt="Logo" class="w-50 img-fluid" />
                     </div>
                     <div class="d-flex flex-column col-md-8 text-sm details">
                         <p>
