@@ -59,7 +59,9 @@ class ServiceOrderController extends Controller
             'remarks' => 'nullable',
             'printed_name' => 'nullable',
             'done_date' => 'nullable',
+            'status' => ['required', 'in:OPEN,CLOSED'],
         ]);
+
         $rtn = ServiceOrders::store($request->all());
 
         if ($rtn) {
@@ -113,6 +115,7 @@ class ServiceOrderController extends Controller
             'remarks' => 'nullable',
             'printed_name' => 'nullable',
             'done_date' => 'nullable',
+            'status' => ['required', 'in:OPEN,CLOSED'],
         ]);
 
         $rtn = ServiceOrders::updater($request->all(), $serviceOrder);

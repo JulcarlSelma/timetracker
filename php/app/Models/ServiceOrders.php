@@ -24,6 +24,7 @@ class ServiceOrders extends Model
         'remarks',
         'printed_name',
         'done_date',
+        'status'
     ];
 
     public function client()
@@ -50,6 +51,7 @@ class ServiceOrders extends Model
                 'remarks' => $params['remarks'],
                 'printed_name' => $params['printed_name'],
                 'done_date' => $params['done_date'],
+                'status' => $params['status'],
             ]);
 
             $so = self::find($created->id);
@@ -79,6 +81,7 @@ class ServiceOrders extends Model
                 'remarks' => $params['remarks'],
                 'printed_name' => $params['printed_name'],
                 'done_date' => $params['done_date'],
+                'status' => $params['status'],
             ]);
             DB::commit();
             return true;

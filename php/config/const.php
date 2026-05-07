@@ -10,6 +10,10 @@ return [
             1 => 'Admin',
             2 => 'Employee'
         ]
+    ],
+    'service_order_status' => [
+        'open' => 'OPEN',
+        'closed' => 'CLOSED'
     ]
 ];
 ?>

@@ -91,6 +91,18 @@
     </div>
 
     <div class="row mb-3">
+        <label for="status" class="col-md-4 col-form-label text-md-end">{{ __('Status') }}</label>
+
+        <div class="col-md-6">
+            <select class="form-control" @error('status') is-invalid @enderror name="status">
+                @foreach (config('const.service_order_status') as $key => $status)
+                    <option value="{{$status}}" {{ $isEdit && $serviceOrder->status == $status ? 'selected' : '' }}>{{$status}}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-3">
         <label for="done_date" class="col-md-4 col-form-label text-md-end">{{ __('Done Date') }}</label>
 
         <div class="col-md-6">
@@ -103,7 +115,7 @@
             <button type="submit" class="btn btn-primary">
                 {{ $buttonText }}
             </button>
-            <a href="{{route('employee.index')}}" class="btn btn-warning">Cancel</a>
+            <a href="{{route('service_orders.index')}}" class="btn btn-warning">Cancel</a>
         </div>
     </div>
 </form>

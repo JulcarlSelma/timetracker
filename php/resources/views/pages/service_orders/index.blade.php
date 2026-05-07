@@ -22,7 +22,7 @@
         </div>
 </div>
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Service Order') }}</div>
 
@@ -40,6 +40,7 @@
                                 <th>Findings</th>
                                 <th>Remarks</th>
                                 <th>Receiver</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -56,6 +57,7 @@
                                     <td>{{$order->findings}}</td>
                                     <td>{{$order->remarks}}</td>
                                     <td>{{$order->printed_name}}</td>
+                                    <td>{{$order->status}}</td>
                                     <td class="d-flex">
                                         <a href="{{route('service_orders.edit', $order->id)}}" class="btn btn-warning mx-2">Edit</a>
                                         <form action="{{route('service_orders.destroy', $order->id)}}" method="post">
